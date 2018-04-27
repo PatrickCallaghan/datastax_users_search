@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema name="autoSolrSchema" version="1.5">
+  <types>
+    <fieldType class="org.apache.solr.schema.TextField" name="TextField">
+		<analyzer>
+			<tokenizer class="solr.StandardTokenizerFactory"/>
+			<filter class="solr.LowerCaseFilterFactory"/>
+		</analyzer>
+    </fieldType>
+    <fieldType class="org.apache.solr.schema.TextField" name="AddressField">
+		<analyzer>
+			<tokenizer class="solr.StandardTokenizerFactory"/>
+			<filter class="solr.LowerCaseFilterFactory"/>
+			<filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
+		</analyzer>
+    </fieldType>
+    <fieldType class="org.apache.solr.schema.TextField" name="NameField">    
+		<analyzer>
+			<tokenizer class="solr.StandardTokenizerFactory"/>
+		    <filter class="solr.BeiderMorseFilterFactory" nameType="GENERIC" ruleType="APPROX" concat="true" languageSet="auto">
+		    </filter>	
+		</analyzer>
+    </fieldType>    
+    <fieldType class="org.apache.solr.schema.StrField" name="StrField"/>
+    <fieldType class="org.apache.solr.schema.TrieDateField" name="TrieDateField"/>
+  </types>
+  <fields>
+    <field indexed="true" multiValued="false" name="zip_code" stored="true" type="TextField"/>
+    <field docValues="true" indexed="true" multiValued="false" name="user_id" stored="true" type="StrField"/>
+    <field indexed="true" multiValued="false" name="state_name" stored="true" type="TextField"/>
+    <field indexed="true" multiValued="false" name="email" stored="true" type="TextField"/>
+    <field indexed="true" multiValued="false" name="street_address" stored="true" type="AddressField"/>
+    <field indexed="true" multiValued="false" name="gender" stored="true" type="TextField"/>
+    <field indexed="true" multiValued="false" name="city_name" stored="true" type="AddressField"/>
+    <field indexed="true" multiValued="false" name="first_name" stored="true" type="NameField"/>
+    <field indexed="true" multiValued="false" name="country_code" stored="true" type="TextField"/>
+    <field docValues="true" indexed="true" multiValued="false" name="dob" stored="true" type="TrieDateField"/>
+    <field indexed="true" multiValued="false" name="phone_number" stored="true" type="TextField"/>
+    <field indexed="true" multiValued="false" name="last_name" stored="true" type="TextField"/>
+    <field indexed="true" multiValued="false" name="middle_name" stored="true" type="NameField"/>
+  </fields>
+  <uniqueKey>user_id</uniqueKey>
+</schema>

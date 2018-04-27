@@ -1,0 +1,4 @@
+NY,New York
+St,Street,street,road
+Ave,Avenue
+Cres,Crescent
