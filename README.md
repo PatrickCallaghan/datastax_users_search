@@ -27,7 +27,7 @@ When using addresses its useful to set up synonyms to allow users to search usin
 Setting up a simple synonyms file with the following sample can easily help acheive this
 ```
 NY,New York
-St,Street,street,road
+St,Street,road
 Ave,Avenue
 Cres,Crescent
 ```
