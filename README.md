@@ -15,8 +15,6 @@ dsetool create_core datastax_demo.users schema=users_schema.xml solrconfig=solr_
  
 Phonetic Matching in DSE Search is done by Beider-Morse Phonetic Matching (BMPM)  
 https://lucene.apache.org/solr/guide/6_6/phonetic-matching.html#PhoneticMatching-Beider-MorsePhoneticMatching_BMPM_
-
-
 ```
 cqlsh -e "select * from datastax_demo.users where solr_query = 'first_name:Debhora'";
 
@@ -35,9 +33,9 @@ Cres,Crescent
 ```
 
 Ensure the following both return the same results
-
 ```
 cqlsh -e "select * from datastax_demo.users where solr_query = 'city_name:\"New York\"'";
+
 cqlsh -e "select * from datastax_demo.users where solr_query = 'city_name:\"NY\"'";
 ```
 
@@ -47,6 +45,8 @@ cqlsh -e "select * from datastax_demo.users where solr_query = 'street_address:a
 
 cqlsh -e "select * from datastax_demo.users where solr_query = 'street_address:ave'";
 ```
-
  
+For more resources on DSE Search please go to 
+https://docs.datastax.com/en/dse/6.0/dse-admin/datastax_enterprise/search/searchTOC.html
+
 
